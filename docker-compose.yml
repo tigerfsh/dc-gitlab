@@ -4,6 +4,8 @@ services:
     image: 'gitlab/gitlab-ce:latest'
     restart: always
     environment:
+      GITLAB_ROOT_EMAIL: "root@localhost"
+      GITLAB_ROOT_PASSWORD: "my_root_password"
       GITLAB_OMNIBUS_CONFIG: |
         # external_url 'http://192.168.0.4:8929'
         gitlab_rails['gitlab_shell_ssh_port'] = 2224
@@ -11,6 +13,6 @@ services:
       - '8929:80'
       - '2224:22'
     volumes:
-      - '/srv/gitlab/config:/etc/gitlab'
-      - '/srv/gitlab/logs:/var/log/gitlab'
-      - '/srv/gitlab/data:/var/opt/gitlab'
+      - './srv/gitlab/config:/etc/gitlab'
+      - './srv/gitlab/logs:/var/log/gitlab'
+      - './srv/gitlab/data:/var/opt/gitlab'
