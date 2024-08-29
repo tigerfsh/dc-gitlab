@@ -5,10 +5,10 @@ services:
     restart: always
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        # external_url 'http://192.168.0.4:8929'
+        #external_url 'http://192.168.1.98:8929'
         gitlab_rails['gitlab_shell_ssh_port'] = 2224
     ports:
-      - '8929:80'
+      - '8929:8929'
       - '2224:22'
     volumes:
       - './srv/gitlab/config:/etc/gitlab'
